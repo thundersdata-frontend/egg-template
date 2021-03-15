@@ -4,7 +4,7 @@
  * @作者: 廖军
  * @Date: 2020-09-10 15:58:14
  * @LastEditors: 廖军
- * @LastEditTime: 2020-10-23 14:12:45
+ * @LastEditTime: 2021-03-15 14:04:27
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
@@ -29,8 +29,8 @@ export default (appInfo: EggAppInfo) => {
     },
     // 白名单
     domainWhiteList: [
-      'http://bisheng-frontend.dev.thundersdata.com',
-      'http://bisheng-frontend.thundersdata.com',
+      'http://egg-frontend.dev.thundersdata.com',
+      'http://egg-frontend.thundersdata.com',
     ],
   };
 
@@ -40,7 +40,7 @@ export default (appInfo: EggAppInfo) => {
     credentials: true,
   };
 
-  // mysql -P3307 -h192.168.0.201 -uliaojun -pleishu@123 bisheng_node_service
+  // mysql -P3307 -h192.168.0.201 -uliaojun -pleishu egg_service
   // 当前使用表名：project
   config.mysql = {
     // 单数据库信息配置
@@ -52,9 +52,9 @@ export default (appInfo: EggAppInfo) => {
       // 用户名
       user: 'liaojun',
       // 密码
-      password: 'leishu@123',
+      password: 'leishu',
       // 数据库名
-      database: 'bisheng_node_service',
+      database: 'egg_service',
     },
     // 是否加载到 app 上，默认开启
     app: true,
@@ -66,7 +66,7 @@ export default (appInfo: EggAppInfo) => {
    * 日志储存路径
    */
   config.logger = {
-    dir: '../bisheng-node-service-log',
+    dir: '../egg-service-log',
   };
 
   /**
@@ -74,7 +74,7 @@ export default (appInfo: EggAppInfo) => {
    */
   config.customLogger = {
     interfaceLogger: {
-      file: '../bisheng-node-service-log/interface/interface.log',
+      file: '../egg-service-log/interface/interface.log',
       outputJSON: true,
     },
   };
@@ -95,8 +95,8 @@ export default (appInfo: EggAppInfo) => {
   config.swaggerdoc = {
     dirScanner: './app/controller',
     apiInfo: {
-      title: 'bisheng-node-service-swagger',
-      description: 'swagger-ui for bisheng-node-service',
+      title: 'egg-service-swagger',
+      description: 'swagger-ui for egg-service',
       version: '1.0.0',
     },
     schemes: ['http'],

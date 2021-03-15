@@ -4,7 +4,7 @@
  * @作者: 廖军
  * @Date: 2020-10-14 10:44:43
  * @LastEditors: 廖军
- * @LastEditTime: 2021-03-15 11:27:30
+ * @LastEditTime: 2021-03-15 13:59:56
  */
 
 import { Logger, FileTransport, ConsoleTransport } from 'egg-logger';
@@ -20,7 +20,7 @@ export default class CustomLogger {
     this.logger.set(
       'file',
       new FileTransport({
-        file: `../screen-service-log/interface/${fileName}.log`,
+        file: `../egg-service-log/interface/${fileName}.log`,
         level: 'INFO',
       }),
     );

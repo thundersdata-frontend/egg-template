@@ -1,0 +1,100 @@
+{
+  "name": "egg-template",
+  "version": "1.0.0",
+  "description": "node服务template",
+  "private": true,
+  "egg": {
+    "typescript": true,
+    "declarations": true
+  },
+  "scripts": {
+    "start": "npm run stop && npm run ci && egg-scripts start --title=egg-server-.node-service --port 7001",
+    "stop": "egg-scripts stop --title=egg-server-.node-service",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "eslint . --ext .ts",
+    "clean": "ets clean",
+    "commit": "git-cz",
+    "eslint:fix": "eslint --fix --ext .ts",
+    "lint:fix": "prettier --check app/**/*.ts --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "changelog": {
+    "emojis": true,
+    "authorName": true,
+    "authorEmail": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tsc && npm run eslint:fix && npm run lint:fix && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "app/**/*.{ts,tsx}": [
+      "git add ."
+    ]
+  },
+  "dependencies": {
+    "@umijs/utils": "^3.2.22",
+    "egg": "^2.6.1",
+    "egg-cors": "^2.2.3",
+    "egg-logger": "^2.4.2",
+    "egg-mysql": "^3.0.0",
+    "egg-scripts": "^2.6.0",
+    "egg-swagger-doc-pro": "^2.3.5",
+    "pont-engine": "^1.0.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/prettier": "^2.1.1",
+    "@types/supertest": "^2.0.0",
+    "@umijs/fabric": "2.1.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "commitizen": "^4.0.4",
+    "conventional-changelog-cli": "^2.0.28",
+    "conventional-changelog-custom-config": "^0.3.1",
+    "cross-env": "^7.0.2",
+    "cz-customizable": "^6.2.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.16.0",
+    "eslint": "^7.9.0",
+    "eslint-config-egg": "^8.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.6",
+    "prettier": "^2.1.2",
+    "standard-version": "^8.0.0",
+    "tslib": "^1.9.0",
+    "typescript": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "廖君",
+  "license": "MIT"
+}

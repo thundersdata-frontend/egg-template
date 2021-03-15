@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@umijs/utils": "^3.2.22",
+    "colors": "^1.4.0",
     "egg": "^2.6.1",
     "egg-cors": "^2.2.3",
     "egg-logger": "^2.4.2",
